@@ -1,4 +1,13 @@
 # Get Real Visitor IP Address (Restoring Visitor IPs) with Nginx and CloudFlare
+
+🆕 This fork includes custom modifications to the script that improve its functionality by:
+1. Ensuring that the Nginx configuration is only reloaded when Cloudflare IPs are successfully fetched.
+2. Preventing the file from being overwritten with empty content, which could cause firewall issues (e.g., with fail2ban) blocking Cloudflare IPs.
+
+These changes are essential for maintaining the integrity of the firewall settings and ensuring Cloudflare IPs are correctly handled.
+
+#
+
 This project aims to modify your nginx configuration to let you get the real ip address of your visitors for your web applications that behind of Cloudflare's reverse proxy network. Bash script can be scheduled to create an automated up-to-date Cloudflare ip list file.
 
 To provide the client (visitor) IP address for every request to the origin, Cloudflare adds the "CF-Connecting-IP" header. We will catch the header and get the real ip address of the visitor.
